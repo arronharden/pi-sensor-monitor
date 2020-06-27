@@ -1,0 +1,53 @@
+{
+  "name": "pi-sensor-monitor",
+  "version": "1.0.0",
+  "description": "Collect external sensor data (e.g. temperature, pressure, humidity) using a Raspberry Pi and push it into a database. Supports BME280, DHT11, DHT22, and DS18B20 sensors.",
+  "main": "index.js",
+  "scripts": {
+    "start": "pm2 start ./src/ecosystem.config.js",
+    "start:dev": "node ./src/index.js",
+    "stop": "pm2 stop pi-sensor-monitor",
+    "pretest": "eslint --ignore-path .gitignore .",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arronharden/pi-sensor-monitor.git"
+  },
+  "author": {
+    "name": "Arron Harden",
+    "email": "post@arronharden.com",
+    "url": "https://arronharden.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arronharden/pi-sensor-monitor/issues"
+  },
+  "homepage": "https://github.com/arronharden/pi-sensor-monitor#readme",
+  "devDependencies": {
+    "eslint": "^6.2.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^23.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^26.1.0"
+  },
+  "dependencies": {
+    "chart.js": "^2.9.3",
+    "chartjs-node-canvas": "^3.0.6",
+    "deepcopy": "^2.0.0",
+    "ds18b20-raspi": "^0.3.3",
+    "nodemailer": "^6.4.10",
+    "nodemon": "^2.0.4",
+    "pm2": "^4.4.0",
+    "sqlite3": "^4.2.0",
+    "yargs": "^14.0.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**"
+    ]
+  }
+}

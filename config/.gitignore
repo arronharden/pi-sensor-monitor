@@ -1,0 +1,4 @@
+# app configs
+*.json
+!app-config-template.json
+!app-config-mock.json

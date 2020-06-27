@@ -1,0 +1,46 @@
+{
+    "sensors": [{
+        "alias": "Random value generator",
+        "type": "random-sensor",
+        "config": {
+            "readPeriodSecs": 5
+        },
+        "alertConditions": [{
+            "type": "max_temp_must_exceed_value_in_last_N_hours",
+            "maxTempToExceed": 40,
+            "lastNHours": 12,
+            "snoozeIntervalSecs": 120
+        }, {
+            "type": "at_least_one_measurement_in_last_N_secs",
+            "lastNSecs": 10
+        }] 
+    }],
+    "alerts": [{
+        "alias": "Log output",
+        "type": "application-log",
+        "config": {
+            "prefix": "ALERT"
+        }
+    },{
+        "alias": "GMail",
+        "type": "email",
+        "config": {
+            "transport": {
+                "service": "gmail",
+                "auth": {
+                    "user": "youremail@gmail.com",
+                    "pass": "yourpassword"
+                }
+            },
+            "message": {
+                "from": "Pi Sensor Monitor <pi_sensor_mon@arronharden.com>",
+                "to": "youremail@gmail.com",
+                "subject": "Sensor alert"
+            }
+        }
+    }],
+    "sqlite3": {
+        "database": "./db/measurements_mock.db",
+        "tableName": "measurements"
+    }
+}

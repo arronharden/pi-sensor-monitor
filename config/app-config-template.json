@@ -1,0 +1,64 @@
+{
+    "sensors": [{
+        "alias": "my bme280 sensor",
+        "type": "bme280-sensor",
+        "config": {
+            "i2cBusNo": 1,
+            "i2cAddress": "0x76"
+        }
+    },{
+        "alias": "my dht11 sensor",
+        "type": "dht-sensor",
+        "config": {
+            "readPeriodSecs": 900,
+            "dhtType": 11,
+            "pin": 4
+        },
+        "alertConditions": [{
+            "type": "max_temp_must_exceed_value_in_last_N_hours",
+            "maxTempToExceed": 50,
+            "lastNHours": 12,
+            "snoozeIntervalSecs": 300
+        }, {
+            "type": "at_least_one_measurement_in_last_N_secs",
+            "lastNSecs": 9000
+        }] 
+    },{
+        "alias": "my ds18b20 sensor",
+        "type": "ds18b20-sensor"
+    },{
+        "alias": "my test sensor",
+        "type": "random-sensor",
+        "config": {
+            "readPeriodSecs": 900
+        }
+    }],
+    "alerts": [{
+        "alias": "Log output",
+        "type": "application-log",
+        "config": {
+            "prefix": "ALERT"
+        }
+    },{
+        "alias": "GMail",
+        "type": "email",
+        "config": {
+            "transport": {
+                "service": "gmail",
+                "auth": {
+                    "user": "youremail@gmail.com",
+                    "pass": "yourpassword"
+                }
+            },
+            "message": {
+                "from": "Pi Sensor Monitor <pi_sensor_mon@arronharden.com>",
+                "to": "youremail@gmail.com",
+                "subject": "Sensor alert"
+            }
+        }
+    }],
+    "sqlite3": {
+        "database": "./db/measurements.db",
+        "tableName": "measurements"
+    }
+}
