@@ -39,7 +39,7 @@
     "chartjs-node-canvas": "^3.0.6",
     "deepcopy": "^2.0.0",
     "ds18b20-raspi": "^0.3.3",
-    "nodemailer": "^6.4.10",
+    "nodemailer": "^6.4.16",
     "nodemon": "^2.0.4",
     "pm2": "^4.4.0",
     "sqlite3": "^4.2.0",
