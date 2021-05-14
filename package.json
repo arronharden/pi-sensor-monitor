@@ -35,7 +35,7 @@
     "jest": "^26.1.0"
   },
   "dependencies": {
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "chartjs-node-canvas": "^3.0.6",
     "deepcopy": "^2.0.0",
     "ds18b20-raspi": "^0.3.3",
